@@ -1,0 +1,25 @@
+                    Project: Chain code for image compression (lossless compression)
+                             and object recognition (via) boundary Pattern Analysis
+
+
+    Abstract:  
+    
+Given a connected component (CC) labeled image (contains one or more connected components) and 
+the corresponding CC property file (i.e., these two files are the output of your connected component project.) 
+
+In the property file, it contains the number of CC in the labeled image, follows by the properties of each CC.  
+Properties of each CC are: the cc label, the pixel count, the two points (minRow, minCol) and (maxRow, maxCol) 
+representing the bounding box of the object location within the labelled image.  
+
+The chain-code algorithm goes as follows: 
+For each cc, we scan the region within the labelled image only those pixels within the bounding box (including
+the boarder pixels) until we find the first non-zero pixel, p(i,j), having the same label as cc’s label.  
+We mark p(i,j) as the starting pixel.  Then, starting from p(i,j), we trace the cc’s boarder pixels (must have 
+the same label as cc), counter-clock-wise; we store the direction (with respect the chain-code direction from 0
+to 7) from one boarder pixel to the next until we come to p(i,j).  The process continue until all cc are traced 
+and chain codes are produced.  
+
+
+Input:
+    - Label File
+    - Property File
